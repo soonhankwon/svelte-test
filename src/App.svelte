@@ -1,4 +1,5 @@
 <script>
+	import Fruits from "./Fruits.svelte";
 	// import { onMount } from "svelte"
 	let name = 'world'
 	let toggle = false
@@ -26,6 +27,13 @@
 		name = 'leave'
 	}
 </script>
+
+<Fruits {fruits} />
+<!-- <Fruits {fruits} reverse={true} /> -->
+<Fruits {fruits} reverse />
+<Fruits {fruits} slice="-2" />
+<Fruits {fruits} slice="0, 3" />
+
 <h1>
 	{text}
 </h1>
@@ -34,7 +42,7 @@
 		on:input={(e) => {text = e.target.value}} />
 <input type="text"
 		bind:value={text} />
-		
+
 <button on:click={() => {text = 'Soonhan'}}>
 	Click!
 </button>
@@ -51,13 +59,6 @@
 <button on:click={() => {toggle = !toggle}}>
 	Toggle
 </button>
-
-<h1>Hello {fruitName}!</h1>
-<ul>
-	{#each fruits as fruit}
-		<li>{fruit}</li>
-	{/each}
-</ul>
 
 <button on:click={deleteFruit}>
 	Eat it!
