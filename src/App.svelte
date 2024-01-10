@@ -7,6 +7,10 @@
   let id = 0;
 
   function createTodo() {
+    if (!title.trim()) {
+      title = "";
+      return;
+    }
     $todos.push({
       id,
       title,
